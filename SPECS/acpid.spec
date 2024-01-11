@@ -8,7 +8,7 @@
 Summary: ACPI Event Daemon
 Name: acpid
 Version: 2.0.32
-Release: 6%{?dist}
+Release: 7%{?dist}
 License: GPLv2+
 Source: http://downloads.sourceforge.net/acpid2/%{name}-%{version}.tar.xz
 Source2: acpid.video.conf
@@ -100,6 +100,10 @@ fi
 	/bin/systemctl try-restart acpid.service >/dev/null 2>&1 || :
 
 %changelog
+* Thu Jul 13 2023 Jaroslav Škarvada <jskarvad@redhat.com> - 2.0.32-7
+- Updated socket path from /var/run => /run in acpid.socket
+  Resolves: rhbz#2159568
+
 * Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com> - 2.0.32-6
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
